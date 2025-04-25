@@ -5,7 +5,7 @@ from sqlalchemy.dialects.postgresql import ARRAY, JSON
 from .database import Base
 
 class Content(Base):
-    __tablename__ = "contents"
+    __tablename__ = "content"
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, nullable=False)                  # Titel für Card & View
