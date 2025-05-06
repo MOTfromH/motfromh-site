@@ -18,8 +18,13 @@ def create_tables():
             time.sleep(1)
     else:
         raise RuntimeError("Konnte nach 10 Versuchen keine DB-Verbindung herstellen")
-
-seeds.seed_db()
+def on_startup():
+    # … Tabellen anlegen mit Retry …
+    db = SessionLocal()
+    try:
+        seeds.seed_db(db)
+    finally:
+        db.close()
 
 # 🔐 CORS-Einstellungen
 origins = [
