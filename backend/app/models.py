@@ -15,4 +15,4 @@ class Content(Base):
     gallery = Column(ARRAY(String), nullable=True)          # Mehrere Bildpfade
     links = Column(JSON, nullable=True)                     # {"github": "...", "demo": "..."}
     has_view = Column(Boolean, default=False)               # ob es eine View-Seite gibt
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=datetime.utcnow)  
