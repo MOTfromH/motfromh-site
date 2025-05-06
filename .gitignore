@@ -9,3 +9,4 @@ dist/
 .nix-channels
 .result/
 EOF
+.notes.md
