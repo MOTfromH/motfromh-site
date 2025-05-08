@@ -1,6 +1,7 @@
 # app/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from app.database import engine
 from app.models import Base
 from app.routes import content
@@ -14,10 +15,12 @@ def create_tables():
             Base.metadata.create_all(bind=engine)
             break                   # bei Erfolg raus
         except OperationalError:
-            print("DB noch nicht bereit, warte 1s…")
+            print("DB is not ready, please wait 1s…")
             time.sleep(1)
     else:
-        raise RuntimeError("Konnte nach 10 Versuchen keine DB-Verbindung herstellen")
+        raise RuntimeError("could not connect to DB after 10 attempts")
+
+# Testdaten anlegen
 def on_startup():
     # … Tabellen anlegen mit Retry …
     db = SessionLocal()
@@ -26,7 +29,7 @@ def on_startup():
     finally:
         db.close()
 
-# 🔐 CORS-Einstellungen
+# CORS-Einstellungen
 origins = [
     "http://localhost:3000",  # dein lokales Frontend
     "http://127.0.0.1:3000",
@@ -42,8 +45,8 @@ app.add_middleware(
 )
 
 
-@app.get("/")
+@app.get("/api/v1/")
 async def root():
     return {"status": "ok"}
 
-app.include_router(content.router)
+app.include_router(content.router, prefix="/api/v1")

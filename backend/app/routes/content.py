@@ -14,15 +14,15 @@ router = APIRouter(
 def get_all_content(db: Session = Depends(get_db)):
     return crud.get_contents(db)
 
-@router.get("/new", response_model=List[schemas.Content])
+@router.get("/new/", response_model=List[schemas.Content])
 def newest_content(db: Session = Depends(get_db)):
     return crud.get_contents(db=db, limit=3)
 
-@router.get("/featured", response_model=List[schemas.Content])
+@router.get("/featured/", response_model=List[schemas.Content])
 def get_featured_content(db: Session = Depends(get_db)):
     return crud.get_contents(db, featured=True)
 
-@router.get("/{id}", response_model=schemas.Content)
+@router.get("/{id}/", response_model=schemas.Content)
 def get_content(id: int, db: Session = Depends(get_db)):
     entry = crud.get_content(db, content_id=id)
     if not entry:
@@ -35,7 +35,14 @@ def get_content(id: int, db: Session = Depends(get_db)):
 def create_content(content: schemas.ContentCreate, db: Session = Depends(get_db)):
     return crud.create_content(db=db, content=content)
 
-@router.put("/{id}", response_model=schemas.Content)
+@router.delete("/{id}/", response_model=schemas.Content)
+def delete_content(id: int, db: Session = Depends(get_db)):
+    deleted = crud.delete_content(db=db, content_id=id)    
+    if not deleted: 
+        raise HTTPException(status_code=404, detail="Content not found")
+    return deleted
+
+@router.put("/{id}/", response_model=schemas.Content)
 def update_content(id: int, content: schemas.ContentCreate, db: Session = Depends(get_db)):
     updated = crud.update_content(db=db, content_id=id, content=content)
     if not updated:
