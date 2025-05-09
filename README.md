@@ -22,7 +22,7 @@ In diesem Projekt entsteht eine neue Version meiner Website, da die alte nicht m
   - Datenbankzugriff über SQLAlchemy
   - Automatischer Tabellen-Erstellung beim App-Start
 - **Datenbank:** PostgreSQL 15 (Docker-Container)
-- **Frontend:** Vue.js (separater Service auf Port 3000)
+- **Frontend:** Vue.js (separater Service auf Port 5173)
 - **DevOps:**
   - Docker Compose für `db`, `api`, `web`
   - CI/CD mit GitHub Actions (geplant)
@@ -32,23 +32,26 @@ In diesem Projekt entsteht eine neue Version meiner Website, da die alte nicht m
 
 ### 🚀 Umgesetzte Features (Backend)
 
-- `GET  /content/` → alle Inhalte abrufen
-- `GET  /content/new` → neueste Inhalte
-- `GET  /content/featured` → empfohlene Inhalte
-- `GET  /content/{id}` → Einzelansicht mit `has_view`-Prüfung
-- `POST /content/` → neuen Inhalt erstellen
-- `PUT  /content/{id}` → vorhandenen Inhalt aktualisieren
+**Basis:** `/api/v1`
+
+- `GET    /content/` → alle Inhalte abrufen
+- `GET    /content/new/` → neueste Inhalte
+- `GET    /content/featured/` → empfohlene Inhalte
+- `GET    /content/{id}/` → Einzelansicht
+- `POST   /content/` → neuen Inhalt erstellen
+- `PUT    /content/{id}/` → bestehenden Inhalt aktualisieren
+- `DELETE /content/{id}/` → Inhalt löschen
 
 ### 🐳 Docker & Infrastruktur
 
 - **API** läuft im Docker-Container (`python:3.11.9-slim`)
 - **DB** als separater Container mit Volume `postgres_data`
-- CORS für `localhost:3000` aktiviert
+- CORS für `localhost:5173` aktiviert
 
 ### 📋 To-Do
 
 - [ ] Dockerfile finalisieren (Multi-Stage Build)
-  - [ ] Dockerfile für das Backend
+  - [x] Dockerfile für das Backend
   - [ ] Dockerfile für das Frontend
 - [ ] Frontend-Service mit Vue.js implementieren
 - [ ] Admin-Bereich mit Login/Rollensteuerung
