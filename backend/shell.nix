@@ -23,7 +23,7 @@ pkgs.mkShell {
   ];
 
   shellHook = ''
-    echo "✅ Python FastAPI Devshell aktiviert"
+    echo "✅ Python FastAPI Devshell active"
     export PYTHONPATH=$PWD
   '';
 }

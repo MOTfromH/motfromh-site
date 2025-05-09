@@ -1,28 +1,29 @@
-# 1️⃣ Build-Image mit Python + Abhängigkeiten
+# 1️. Build stage: Python base image and dependencies
 FROM python:3.11.9-slim AS builder
+# Maybe use SHA image for prod builds?
 
-# Nur notwendig für das Kompilieren mancher Wheels
+# Install build dependencies
 RUN apt-get update \
     && apt-get install -y build-essential \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-# Python-Pakete installieren (nutzt jetzt psycopg2-binary)
+# Install Python packages (uses psycopg2-binary)
 COPY requirements.txt .
 RUN pip install --user --no-cache-dir -r requirements.txt
 
-# 2️⃣ Finales, minimales Runtime-Image
+# 2️. Final stage: minimal runtime image
 FROM python:3.11.9-slim
 
 WORKDIR /app
 
-# Nur das vom Builder installierte user–Verzeichnis übernehmen
+# Copy installed dependencies from builder
 COPY --from=builder /root/.local /root/.local
 ENV PATH="/root/.local/bin:$PATH"
 
-# Applikations-Code übernehmen
+# Copy application code
 COPY app/ .
 
-# Startbefehl
+# Entrypoint
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

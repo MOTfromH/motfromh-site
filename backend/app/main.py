@@ -1,4 +1,3 @@
-# app/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
@@ -10,30 +9,30 @@ from app import seeds
 app = FastAPI()
 @app.on_event("startup")
 def create_tables():
-    for i in range(10):             # bis zu 10 Versuche
+    for i in range(10):             # 10 trys
         try:
             Base.metadata.create_all(bind=engine)
-            break                   # bei Erfolg raus
+            break                   
         except OperationalError:
             print("DB is not ready, please wait 1s…")
             time.sleep(1)
     else:
         raise RuntimeError("could not connect to DB after 10 attempts")
 
-# Testdaten anlegen
+# Create testdata from seed
 def on_startup():
-    # … Tabellen anlegen mit Retry …
+    
     db = SessionLocal()
     try:
         seeds.seed_db(db)
     finally:
         db.close()
 
-# CORS-Einstellungen
+# CORS-Config
 origins = [
-    "http://localhost:3000",  # dein lokales Frontend
-    "http://127.0.0.1:3000",
-   # "https://deine-domain.tld",  # später für Produktion
+    "http://localhost:5173",  # local frontend
+    "http://127.0.0.1:5173",
+   # "https://deine-domain.tld",  # production
 ]
 
 app.add_middleware(
