@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from app.database import engine
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm, OperationalError
+import time
+from app.database import engine, SessionLocal
 from app.models import Base
 from app.routes import content
 from app import seeds
