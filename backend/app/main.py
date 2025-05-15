@@ -4,7 +4,7 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm, Op
 import time
 from app.database import engine, SessionLocal
 from app.models import Base
-from app.routes import content
+from app.routes import content, test
 from app import seeds
 
 app = FastAPI()
@@ -50,3 +50,6 @@ async def root():
     return {"status": "ok"}
 
 app.include_router(content.router, prefix="/api/v1")
+
+#Test-Router
+app.include_router(test.router, prefix="/test")
