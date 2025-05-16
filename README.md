@@ -28,7 +28,7 @@ In diesem Projekt entsteht eine neue Version meiner Website, da die alte nicht m
   - CI/CD mit GitHub Actions (geplant)
   - Environment-Variablen via `.env`
 
-## Aktueller Stand (Stand: 2025-05-06)
+## Aktueller Stand (Stand: 2025-05-16)
 
 ### 🚀 Umgesetzte Features (Backend)
 
