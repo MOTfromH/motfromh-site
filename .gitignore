@@ -10,3 +10,4 @@ dist/
 .result/
 EOF
 .notes.md
+./frontend/nuxt-app/assets/images/
