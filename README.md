@@ -54,9 +54,13 @@ In diesem Projekt entsteht eine neue Version meiner Website, da die alte nicht m
   - [x] Dockerfile für das Backend
   - [ ] Dockerfile für das Frontend
 - [ ] Frontend-Service mit Vue.js implementieren
+  - [x] Projekt initialieseiren
+  - [x] Erster data-fetch
+  - [ ] Card-Component bauen
+  - [ ] Navbar, Heder und Footer-Components erstellen
 - [ ] Admin-Bereich mit Login/Rollensteuerung
 - [ ] Automated Tests mit `pytest` schreiben
-- [ ] Seed-Skript bzw. Migrationstool für Testdaten
+- [x] Seed-Skript bzw. Migrationstool für Testdaten
 - [ ] CI/CD-Workflows (Build → Test → Deploy) konfigurieren
 - [ ] Rollout in Produktionsumgebung (z. B. Docker Swarm / Kubernetes)
 
@@ -68,6 +72,6 @@ In diesem Projekt entsteht eine neue Version meiner Website, da die alte nicht m
 | Betriebssystem | NixOS | in Betrieb |
 | Backend | FastAPI (Python) | funktional |
 | Datenbank | PostgreSQL 15 | via Docker |
-| Frontend | Vue.js | in Planung |
+| Frontend | Vue.js | in Arbeit |
 | Containerization | Docker, Docker Compose | eingerichtet |
 | CI/CD | GitHub Actions | geplant |
