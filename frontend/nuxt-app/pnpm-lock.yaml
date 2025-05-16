@@ -11,6 +11,9 @@ dependencies:
   nuxt:
     specifier: ^3.17.2
     version: 3.17.2(eslint@9.26.0)(typescript@5.8.3)(vite@6.3.5)
+  popper.js:
+    specifier: ^1.16.1
+    version: 1.16.1
   vue:
     specifier: ^3.5.13
     version: 3.5.13(typescript@5.8.3)
@@ -7183,6 +7186,11 @@ packages:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
     dev: true
+
+  /popper.js@1.16.1:
+    resolution: {integrity: sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==}
+    deprecated: You can find the new Popper v2 at @popperjs/core, this package is dedicated to the legacy v1
+    dev: false
 
   /postcss-calc@10.1.1(postcss@8.5.3):
     resolution: {integrity: sha512-NYEsLHh8DgG/PRH2+G9BTuUdtf9ViS+vdoQ0YA5OQdGsfN4ztiwtDWNtBl9EKeqNMFnIu8IKZ0cLxEQ5r5KVMw==}
