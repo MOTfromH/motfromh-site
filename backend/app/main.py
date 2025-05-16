@@ -2,9 +2,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.exc import OperationalError
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from sqlalchemy import select
 import time
 from app.database import engine, SessionLocal
-from app.models import Base
+from app.models import Base, Content
 from app.routes import content, test
 from app import seeds
 
@@ -21,13 +22,18 @@ def create_tables():
     else:
         raise RuntimeError("could not connect to DB after 10 attempts")
 
-# Create testdata from seeds at startup
+# Create testdata from seeds at startup, when DB has no content
 @app.on_event("startup")
-def on_startup():
-    
+def seed():
     db = SessionLocal()
     try:
-        seeds.seed_db(db)
+        has_content = db.execute(select(Content).limit(1)).first() is not None
+
+        if not has_content:
+            print("Seeding initial content…")
+            seeds.seed_db(db)
+        else:
+            print("DB contains content, skipping seeding…")
     finally:
         db.close()
         
