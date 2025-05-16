@@ -8,6 +8,9 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/image',
   ],
+    plugins: [
+    '~/plugins/bootstrap.client.ts'
+  ],
   css: [
     'bootstrap/dist/css/bootstrap.min.css'
   ],
