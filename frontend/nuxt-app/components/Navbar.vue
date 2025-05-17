@@ -1,9 +1,9 @@
 <template>
-  <nav class="navbar navbar-light bg-light p-0">
+  <nav class="navbar navbar-light bg-light p-0 mt-1">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img
-          src="assets/images/logo_transparent.png"
+          src="public/images/logo_transparent.png"
           alt="logo"
           width="50"
           height="38"

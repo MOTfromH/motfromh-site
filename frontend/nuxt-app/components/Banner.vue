@@ -1,8 +1,8 @@
 <template>
   <header>
-    <div class="container-fluid p-0 position-relative">
+    <div class="container-fluid p-0 position-relative mt-1">
       <img
-        src="assets/images/hamburDigitalFinal.png"
+        src="public/images/hamburgDigitalFinalEdit.jpg"
         alt="Speicherstadt mit digitalen Elementen"
         sizes="(max-width: 600px) 100vw, 600px"
         loading="lazy"
