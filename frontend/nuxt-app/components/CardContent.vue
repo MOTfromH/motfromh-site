@@ -14,15 +14,24 @@
       <NuxtLink
         v-if="content.has_view"
         :to="`/content/${content.id}`"
-        class="btn btn-primary"
+        class="btn btn-info"
       >
         View Details
       </NuxtLink>
+      <a
+        v-else
+        :href="content.links?.github"
+        class="btn btn-info"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View on GitHub
+      </a>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { Content } from "~/types/content";
+import type { Content } from "@/types/content";
 defineProps<{ content: Content }>();
 </script>
