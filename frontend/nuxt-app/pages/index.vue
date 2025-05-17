@@ -1,15 +1,18 @@
 <template>
   <section>
-    <h1>Content Dashboard</h1>
+    <h1>Projekte</h1>
 
     <div v-if="pending" class="alert alert-info">Loading…</div>
     <div v-else-if="error" class="alert alert-danger">
       Error: {{ error.message }}
     </div>
 
-    <div v-else class="row">
-      <div class="col-md-4 mb-4" v-for="item in entries" :key="item.id">
-        <CardContent :content="item" />
+    <!-- horizontal row wrapper -->
+    <div class="px-5">
+      <div class="row">
+        <div class="col-md-4 mb-4" v-for="item in entries" :key="item.id">
+          <CardContent :content="item" />
+        </div>
       </div>
     </div>
   </section>
