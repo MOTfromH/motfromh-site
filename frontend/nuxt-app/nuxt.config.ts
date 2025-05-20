@@ -12,12 +12,13 @@ export default defineNuxtConfig({
     '~/plugins/bootstrap.client.ts'
   ],
   css: [
-    'bootstrap/dist/css/bootstrap.min.css'
+    'bootstrap/dist/css/bootstrap.min.css',
+    '~/assets/css/main.css'
   ],
 
   // https://image.nuxt.com/get-started/configuration
   image: {
-    dirs: ['assets/images'],
+    dirs: ['public'],
     // optional: provider
     provider: 'ipx',
     // optional: IPX configuration
