@@ -1,55 +1,62 @@
 from sqlalchemy.orm import Session
 from . import models
-from datetime import datetime
 
 def seed_db(db: Session):
     contents = [
         models.Content(
-            title="Hello World",
-            description="Ein einfacher Testeintrag",
-            body="Lorem ipsum dolor sit amet.",
-            image_url="/static/test1.jpg",
-            links={"github": "https://github.com/yourorg/hello-world"},
+            title="GitHub",
+            description="Hier findest du mein GitHub Profil. Dort findest du auch den Code zu den Anwendungen auf meiner Seite.",
+            body="Hier findest du mein GitHub Profil. Dort findest du auch den Code zu den Anwendungen auf meiner Seite.",
+            image_url="/images/ScreenGH.png",
+            links={"github": "https://github.com/MOTfromH"},
             has_view=True
         ),
         models.Content(
-            title="Projekt Eins",
-            description="Beschreibung zu Projekt Eins",
-            body="Dies ist der Body von Projekt Eins.",
-            image_url="/static/test2.jpg",
-            links={"github": "https://github.com/yourorg/projekt-eins"},
+            title="Rollenspiel in PHP",
+            description="Ein Rollenspiel, bei dem du als Mensch oder Ork gegeneinander antreten kannst. Bei der Wahl deiner Ausrüstung kannst du entweder auf einen festen Bonus setzen, oder du vertraust auf dein Glück.",
+            body="Spiele als Mensch oder Ork gegeneinander. Ausrüstung: Festen Bonus oder Glück!",
+            image_url="/images/orcKlein.png",
+            links={"spielen": "/Rollenspiel_php/start.html"},
             has_view=True
         ),
         models.Content(
-            title="Projekt Zwei",
-            description="Kurzbeschreibung von Projekt Zwei",
-            body="Detailierter Text zu Projekt Zwei.",
-            image_url="/static/test3.jpg",
-            links={"github": "https://github.com/yourorg/projekt-zwei"},
+            title="Mein CV zum Download",
+            description="Mein CV, Zeugnisse und Zertifikate findest du hier zum Download.",
+            body="Mein CV, Zeugnisse und Zertifikate findest du hier zum Download. Der Downloadbereich ist passwortgeschützt.",
+            image_url="/images/CVthumb.png",
+            links={"download": "#exampleModal"},
             has_view=True
         ),
         models.Content(
-            title="Mini-App",
-            description="Eine kleine Beispiel-App",
-            body="Hier steht der längere Text zu Mini-App.",
-            image_url="/static/test4.jpg",
-            links={"github": "https://github.com/yourorg/mini-app"},
+            title="Kniffel API - JAVA & Spring Boot",
+            description="Im Laufe der Zeit wird hier eine Kniffel-API entstehen. Verfolge das Voranschreiten des Projektes gerne auf GitHub.",
+            body="Kniffel-API mit Java/Spring Boot. Projekt auf GitHub verfolgen.",
+            image_url="/images/KniffelThumb.png",
+            links={"github": "https://github.com/MOTfromH/springboot_workshop_kniffelAPI/tree/master"},
             has_view=True
         ),
         models.Content(
-            title="Starter Pack",
-            description="Basis-Template zum Ausprobieren",
-            body="Erklärungen und Hinweise zum Starter Pack.",
-            image_url="/static/test5.jpg",
-            links={"github": "https://github.com/yourorg/starter-pack"},
+            title="Meine Homepage",
+            description="Der Code zu meiner Homepage findet ihr auch bei GitHub. Er wird Stück für Stück weiter modulariesiert. Eine URL Router Class ist auch geplant.",
+            body="Der Code zur Homepage ist auf GitHub – Modularisierung ongoing.",
+            image_url="/images/HpSH.png",
+            links={"github": "https://github.com/MOTfromH/motfromh"},
             has_view=True
         ),
         models.Content(
-            title="Demo Card",
-            description="Reine Platzhalter-Eintragung",
-            body="Kurzbeschreibung für die Demo Card.",
-            image_url="/static/test6.jpg",
-            links={"github": "https://github.com/yourorg/demo-card"},
+            title="Dynamisch erstellter Blog mit PHP",
+            description="Projekt aus dem Fachunterricht. Verfolge das Projekt gerne mit auf GitHub, bis es fertig ist.",
+            body="Dynamischer Blog in PHP. Entwicklung läuft – GitHub-Link im Button.",
+            image_url="/images/blogPrev.PNG",
+            links={"github": "https://github.com/MOTfromH/blog"},
+            has_view=True
+        ),
+        models.Content(
+            title="Sprite Animation mit JS",
+            description="Animationen des Chars, verschiedene Gegnertypen mit unterschiedlichen Bewegungsmustern und ein Parallax Background kannst du hier entdecken.",
+            body="Sprite Animation: Verschiedene Gegner, Parallax Background. Teste es selbst!",
+            image_url="/images/spritePreview4.png",
+            links={"starten": "/sprite/hallosprite.html"},
             has_view=True
         ),
     ]
