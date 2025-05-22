@@ -8,3 +8,32 @@ h1 {
     text-align: center;
     margin-bottom: 1.5rem;
 }
+
+.btn-info {
+  background-color: #38b4a8 !important;
+  border-color: #38b4a8 !important;
+  color: #fff !important;
+}
+
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active {
+  background-color: #2fa89d !important; /* leicht dunklere Version */
+  border-color: #2fa89d !important;
+  color: #fff !important;
+}
+
+.btn-outline-info {
+  color: #38b4a8 !important;
+  border-color: #38b4a8 !important;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-outline-info:hover,
+.btn-outline-info:focus,
+.btn-outline-info:active {
+  background-color: #38b4a8 !important;
+  border-color: #38b4a8 !important;
+  color: #fff !important;
+}
