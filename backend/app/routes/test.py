@@ -13,7 +13,7 @@ class TestEntry(BaseModel):
 # 2) In-Memory „Model“
 _test_store: List[TestEntry] = []
 
-# 3) CRUD-Logik direkt hier
+# 3) CRUD-Logic
 @router.get("/", response_model=List[TestEntry])
 def list_entries():
     return _test_store
@@ -30,3 +30,13 @@ def delete_entry(id: int):
     global _test_store
     _test_store = [e for e in _test_store if e.id != id]
 
+# 4) Test-Seed
+
+def seed_test_data():
+    """Füllt _test_store beim App-Start mit ein paar Einträgen."""
+    global _test_store
+    _test_store.clear()
+    _test_store.extend([
+        TestEntry(id=1, title="Foo", description="Erster Test"),
+        TestEntry(id=2, title="Bar", description="Zweiter Test"),
+    ])
