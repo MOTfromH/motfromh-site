@@ -18,11 +18,14 @@ export default defineNuxtConfig({
     '~/assets/css/main.css'
   ],
 
-  runtimeConfig: {
-    public: {
-      apiBase: process.env.NUXT_PUBLICAPI_BASE || 'http://localhost:8001/api/v1'
-    }
-  },
+  // runtimeConfig: {
+  //   serverSide: {
+  //     apiBase: process.env.NUXT_SERVERAPI_BASE || 'http://api:8000/api/v1'
+  //   },
+  //   public: {
+  //     apiBase: process.env.NUXT_PUBLICAPI_BASE || 'http://localhost:8800/api/v1'
+  //   }
+  // },
 
   image: {
     dirs: ['public'],
