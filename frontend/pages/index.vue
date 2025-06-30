@@ -7,7 +7,6 @@
       Error: {{ error.message }}
     </div>
 
-    <!-- horizontal row wrapper -->
     <div class="px-5">
       <div class="row">
         <div class="col-md-4 mb-4" v-for="item in entries" :key="item.id">
@@ -17,17 +16,18 @@
     </div>
   </section>
 </template>
+
 <script setup lang="ts">
 import CardContent from "~/components/CardContent.vue";
-import type { Content } from "~/types/content";
+import { useContent } from "~/composables/useContent";
 
-const config = useRuntimeConfig();
+const { fetchContent } = useContent();
 
 const {
   data: entries,
   pending,
   error,
-} = await useFetch<Content[]>(`${config.public.apiBase}/content/`);
+} = await useLazyAsyncData("content", fetchContent);
 </script>
 
 <style scoped>
